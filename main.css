@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css);
+body{
+    display: flex;
+    justify-content: center;
+    font-family: "Inter", sans-serif;
+}
+/* main parent box */
+#main{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+    max-width: 700px;
+    padding: 2rem;
+    border-radius: 24px;
+    border: solid 1px rgb(225, 225, 225);
+    background: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+/* weather now heading */
+#title{
+    background-color: rgb(255, 255, 255);
+    border-radius: 24px;
+    display: flex;
+    justify-content: center;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 1.5em;
+}
+.now{
+    font-weight: 200;
+}
+/* search box */
+#searchBox {
+   position: relative;
+  height: 3rem;
+  margin-top: 1em;
+  padding-left: 1.5rem;
+  border-radius: 1.5rem;
+  background: #ffffff;
+  border: solid 0.1px rgb(225, 225, 225);
+  box-shadow: 0 1.25rem 5rem -1rem rgba(0, 0, 30, 0.5);
+  transition: transform 200ms ease-in-out;
+}
+#searchBox::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 1.5rem;
+  box-shadow: 0 0.5rem 2rem -1rem rgba(0, 0, 100, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms ease-in-out;
+}
+#searchBox input {
+  all: unset;
+  height: 100%;
+  color: #333355;
+}
+#searchBox input::placeholder {
+  color: inherit;
+  opacity: 0.3;
+}
+#searchBox button {
+  all: unset;
+  position: absolute;
+  right: 0;
+  height: 3rem;
+  padding-left: 3rem;
+  border-radius: 1.5rem;
+  background: rgb(182, 182, 236);
+  cursor: pointer;
+}
+#searchBox button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 1.5rem;
+  box-shadow: 0 0.5rem 2rem 0 rgba(41, 110, 199, 0.25), 0 0.5rem 1rem -0.75rem rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+}
+#searchBox button:hover::before {
+  opacity: 1;
+}
+.search button label {
+  display: block;
+  opacity: 0;
+  color: white;
+  width: 0;
+  transition: width 200ms ease-in-out, opacity 100ms ease-in-out;
+}
+#searchBox button .search-icon {
+  position: absolute;
+  height: 0.875rem;
+  width: 0.875rem;
+  top: 1rem;
+  left: 0.875rem;
+  border: 0.125rem solid white;
+  border-radius: 50%;
+  box-sizing: border-box;
+  transform: rotate(-45deg);
+}
+#searchBox  button .search-icon::after {
+  content: "";
+  position: absolute;
+  height: 0.5rem;
+  width: 0.125rem;
+  background: white;
+  left: calc(50% - (0.125rem / 2));
+  bottom: -0.6rem;
+}
+#searchBox :has(input:not(:placeholder-shown)) button label {
+  opacity: 1;
+  width: 3rem;
+  margin-left: -0.5rem;
+  padding-right: 1rem;
+}
+#searchBox :has(input:focus) {
+  transform: translateY(-0.5rem);
+}
+#searchBox :has(input:focus)::before {
+  opacity: 1;
+}
+/* weather showing box */
+.widget {
+    font-family: Poiret One;
+    position: relative;
+    display: flex;
+    margin-top: 2em;
+    height: 20em;
+    width: 100%;
+    flex-wrap: wrap;
+    cursor: pointer;
+     border-radius: 20px;
+    box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
+}
+.widget .weatherIcon {
+    flex: 1 100%;
+    height: 60%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background: #FAFAFA;
+    font-family: weathericons;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 100px;
+}
+.widget .weatherIcon i {
+    padding-top: 30px;
+}
+.widget .weatherInfo {
+    flex: 0 0 70%;
+    height: 40%;
+    background: #080705;
+    border-bottom-left-radius: 20px;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+.widget .weatherInfo .temperature {
+    width: 100%;
+    font-size: 5rem;
+    display: flex;
+    justify-content: space-around;
+}
+.widget .weatherInfo .description {
+    flex: 0 60%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-right: 10%;
+    height: 100%;
+    justify-content: center;
+}
+.widget .weatherInfo .description .weatherCondition {
+    text-transform: uppercase;
+    font-size: 35px;
+    font-weight: 100;
+}
+.widget .weatherInfo .description .place {
+    font-size: 15px;
+}
+.widget .date {
+    flex: 0 0 30%;
+    height: 40%;
+    background: rgb(182, 182, 236);
+    border-bottom-right-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+p {
+    position: fixed;
+    bottom: 0%;
+    right: 2%;
+}
+p a {
+    text-decoration: none;
+    color: #E4D6A7;
+    font-size: 10px;
+}
