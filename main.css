@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url(https://fonts.googleapis.com/css?family=Poiret+One);
-@import url(https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css);
 body{
     display: flex;
     justify-content: center;
@@ -61,6 +60,7 @@ body{
 #searchBox input {
   all: unset;
   height: 100%;
+  width: 100%;
   color: #333355;
 }
 #searchBox input::placeholder {
@@ -146,15 +146,11 @@ body{
     height: 60%;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    background: #FAFAFA;
-    font-family: weathericons;
+    background: #f1f6f7;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    font-size: 100px;
-}
-.widget .weatherIcon i {
-    padding-top: 30px;
+    overflow: hidden;
 }
 .widget .weatherInfo {
     flex: 0 0 70%;
@@ -182,16 +178,16 @@ body{
 }
 .widget .weatherInfo .description .weatherCondition {
     text-transform: uppercase;
-    font-size: 35px;
+    font-size: 1.5rem;
     font-weight: 100;
 }
 .widget .weatherInfo .description .place {
     font-size: 15px;
 }
-.widget .date {
+.widget .showDate {
     flex: 0 0 30%;
     height: 40%;
-    background: rgb(182, 182, 236);
+    background: rgb(111, 182, 215);
     border-bottom-right-radius: 20px;
     display: flex;
     justify-content: space-around;
